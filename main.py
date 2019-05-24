@@ -4,6 +4,7 @@ import threading
 from iris_core.boot.server import Server
 from iris_core.boot.trainer import Trainer
 from router import Router
+from flask_cors import CORS
 
 # this file covers everything that needs to happen only once, when the app starts
 # the sequence in this file is very important because of keras sessions
@@ -43,6 +44,7 @@ if start_trainer:
 if start_server:
     # start the server
     app = Server().start()
+    CORS(app)
 
     # register all the routes/blueprints in the router file
     Router().register()
