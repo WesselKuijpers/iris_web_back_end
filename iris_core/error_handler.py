@@ -1,4 +1,4 @@
-from flask import render_template, Blueprint
+from flask import Blueprint, jsonify
 
 # register blueprint
 errors = Blueprint('errors', __name__)
@@ -8,4 +8,4 @@ errors = Blueprint('errors', __name__)
 # returns: 'templates/errors/404.html' template
 @errors.app_errorhandler(404)
 def page_not_found(self):
-    return render_template('errors/404.html')
+    return jsonify({"status": 404})

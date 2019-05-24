@@ -59,7 +59,7 @@ def predict_save():
     absolute_category = request.form['category'].replace(
         ',', '').replace(' ', '_').lower()
     name = request.form['location'].replace('static/img/cache/', '')
-    path = 'dataset/train' + absolute_category + '/' + name
+    path = 'dataset/train/' + absolute_category + '/' + name
 
     os.rename(request.form['location'], path)
 
